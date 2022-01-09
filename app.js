@@ -26,16 +26,15 @@ const promptUser = () => {
         }
       }
     },
-
     {
       type: 'input',
       name: 'github',
       message: 'Enter your GitHub Username (Required)',
-      validate: nameInput => {
-        if (nameInput) {
+      validate: githubInput => {
+        if (githubInput) {
           return true;
         } else {
-          console.log('Please enter your name!');
+          console.log('Please enter your GitHub username!');
           return false;
         }
       }
@@ -50,18 +49,7 @@ const promptUser = () => {
       type: 'input',
       name: 'about',
       message: 'Provide some information about yourself:',
-      when: ({ confirmAbout }) => {
-        if (confirmAbout) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
-      name: 'about',
-      message: 'Provide some information about yourself:'
+      when: ({ confirmAbout }) => confirmAbout
     }
   ]);
 };
